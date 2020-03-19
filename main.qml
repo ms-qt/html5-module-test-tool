@@ -35,7 +35,9 @@ Window {
     WebEngineView {
         id: _WebEngineView
 
+        url:"file:///Users/maohuawei/src/qt/module-js-example/index.html"
         // anchors.fill: parent
+
         anchors.top: _Button.bottom
         
         width: parent.width
@@ -50,6 +52,19 @@ Window {
 
         onJavaScriptConsoleMessage: {
             console.log(message)
+        }
+        onLoadProgressChanged:
+        {
+
+        }
+
+        onSmoothChanged: {
+
+        }
+
+
+        onCertificateError: {
+            console.log(error)
         }
 
         onFeaturePermissionRequested: {
@@ -67,6 +82,9 @@ Window {
         onUrlChanged: {
             console.log("url : "+url)
         }
+
+
+
     }
     WebChannel {
         id: _WebChannel

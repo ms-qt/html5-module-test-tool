@@ -14,19 +14,26 @@ namespace bdlbsc
     QString WebDataComponent::get_app_access_token()
     {
         qDebug() << "bdlbsc::WebDataComponent::get_app_access_token";
-        return "bdlbsc::test::app_access_token";
+        return "test:: app_access_token";
         //return _app_access_token;
     }
 
     QString WebDataComponent::get_user_access_token()
     {
-        return "bdlbsc::test::user_access_token";
+        return "test:: user_access_token";
         //return _user_access_token;
+    }
+
+    QString WebDataComponent::get_data()
+    {
+        return "test:: data";
     }
 
     QString WebDataComponent::get_user_id()
     {
-        return _user_id;
+
+      return "test:: user_id";
+      //  return _user_id;
     }
 
     void WebDataComponent::send_app_access_token(QString values)
@@ -45,6 +52,20 @@ namespace bdlbsc
     {
 
         emit user_id_change(values);
+    }
+
+    void WebDataComponent::send_data(QString data)
+    {
+        _data = data;
+        emit data_change(data);
+    }
+
+
+    void WebDataComponent::on_send_data(QString data) {
+
+
+        qDebug()<<"on_send_data : "<<data;
+
     }
 
 } // namespace bdlbsc
